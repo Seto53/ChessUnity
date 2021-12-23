@@ -52,7 +52,7 @@ public class Move
 
     public void SetScore(float score2)
     {
-        this.score = score2;
+        score = score2;
     }
 
     public float GetScore()

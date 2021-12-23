@@ -82,15 +82,15 @@ public class EnginePlayer : Player
         }
 
         List<Move> legalMoves = MoveGenerator.GenerateLegalMoves(game, true);
-        if (legalMoves.Count == 0)
-        {
-            if (game.IsKingInDanger())
-            {
-                return player == "Black" ? float.PositiveInfinity : float.NegativeInfinity;
-            }
-
-            return 0;
-        }
+        // if (legalMoves.Count == 0)
+        // {
+        //     if (game.IsKingInDanger())
+        //     {
+        //         return player == "Black" ? float.PositiveInfinity : float.NegativeInfinity;
+        //     }
+        //
+        //     return 0;
+        // }
 
         float actualScore = 0;
         foreach (Move m in legalMoves)

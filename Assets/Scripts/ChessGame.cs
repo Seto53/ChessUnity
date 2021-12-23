@@ -703,10 +703,10 @@ public class ChessGame
                 score = 0f;
                 break;
             case GameState.WhiteWinCheckmate:
-                score = 100f;
+                score = 318f;
                 break;
             case GameState.BlackWinCheckmate:
-                score = -100f;
+                score = -318f;
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(gameState), gameState, null);

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Random = System.Random;
 
 public class Game : MonoBehaviour
 {
@@ -180,6 +179,7 @@ public class Game : MonoBehaviour
     private void SetWinner(GameState playerWinner)
     {
         GameObject.FindGameObjectWithTag("WinnerText").GetComponent<Text>().enabled = true;
+        GameObject.FindGameObjectWithTag("ScoreText").GetComponent<Text>().enabled = false;
         string message = String.Empty;
         switch (playerWinner)
         {
