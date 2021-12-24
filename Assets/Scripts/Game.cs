@@ -1,5 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Core;
+using Player;
+using Unity_Objects;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,14 +17,13 @@ public class Game : MonoBehaviour
     private float blackPoints;
     private float whitePoints;
     private int gameMode;
-    public Player WhitePlayer;
-    public Player BlackPlayer;
-    private const int EngineDepth = 2;
-
-
+    public IPlayer WhitePlayer;
+    public IPlayer BlackPlayer;
+    private const int EngineDepth = 3;
+    
     private void Start()
     {
-        gameMode = 0;
+        gameMode = 5;
 
         chessGame = new ChessGame();
         gamesHistory.Push(chessGame.DeepClone());
@@ -32,27 +34,27 @@ public class Game : MonoBehaviour
         {
             case 0:
                 WhitePlayer = new HumanPlayer();
-                BlackPlayer = new EnginePlayer(EngineDepth, true);
+                BlackPlayer = new EnginePlayer(EngineDepth);
                 break;
             case 1:
                 WhitePlayer = new HumanPlayer();
-                BlackPlayer = new EnginePlayer(EngineDepth, false);
-                break;
-            case 2:
-                WhitePlayer = new HumanPlayer();
                 BlackPlayer = new HumanPlayer();
                 break;
-            case 3:
-                WhitePlayer = new EnginePlayer(EngineDepth, false);
-                BlackPlayer = new EnginePlayer(EngineDepth, false);
+            case 2:
+                WhitePlayer = new EnginePlayer(EngineDepth);
+                BlackPlayer = new EnginePlayer(EngineDepth);
                 break;
-            case 4:
+            case 3:
                 WhitePlayer = new RandomPlayer();
                 BlackPlayer = new RandomPlayer();
                 break;
-            case 5:
+            case 4:
                 WhitePlayer = new HumanPlayer();
                 BlackPlayer = new RandomPlayer();
+                break;
+            case 5:
+                WhitePlayer = new RandomPlayer();
+                BlackPlayer = new EnginePlayer(EngineDepth);
                 break;
         }
     }
